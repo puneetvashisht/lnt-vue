@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Dom </title>
+</head>
+<body>
+    <div>
+        <h1 id="message">Some message!</h1>
+        <button onclick="reverse()">Reverse Message</button>
+        <button onclick="load()">Load Employee Data</button>
+    </div>
+    <script>
+
+        async function load(){
+            // ajax call
+          const res = await fetch('http://localhost:3000/employees')
+          const d = await res.json();
+          console.log(d)
+          document.getElementById('message').innerText = d[0].name
+            // .then(res=> res.json())
+            // .then(d => console.log(d))
+        }
+        function reverse(){
+           var str= document.getElementsByTagName('h1')[0].innerText
+           var revStr = str.split('').reverse().join('')
+           document.getElementsByTagName('h1')[0].innerText = revStr
+        }
+    </script>
+</body>
+</html>
