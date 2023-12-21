@@ -8,10 +8,37 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <!-- <img :src="isHighres?highResImage:lowResImage"/> -->
+      <div>
+        <h1 v-if="isHeadingVisible">Welcome,{{username}}</h1>
+        <p v-else>This is a Paragraph</p>
+      </div>
+    </div>
     <script>
-      // Write Code Here..
-      
+     new Vue({
+      data(){
+        return{
+          // message:'Hello World!!',
+
+          // //Attribute Binding
+          // isHighres:true,
+          // highResImage:"https://placekitten.com/800/400",
+          // lowResImage:'https://placekitten.com/400/200'
+
+          //Conditional Rendering
+          username:'User',
+          isHeadingVisible:false,
+          isHighlighted:false,
+          isItalic:false,
+          isParagraphVisible:false,
+          isDetailsVisible:false,
+          toolTip:'Thia is tool tip'
+        }
+      },
+      el:'#app',
+      // template:'<div>{{message}}</div>'
+     })
     </script>
   </body>
 </html>
