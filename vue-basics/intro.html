@@ -10,9 +10,16 @@
   <body>
     <div id="app">
       <!-- <img :src="isHighres?highResImage:lowResImage"/> -->
-      <div>
-        <h1 v-if="isHeadingVisible">Welcome,{{username}}</h1>
-        <p v-else>This is a Paragraph</p>
+      <div :class="{ 'highlighted': isHighlighted, 'italic': isItalic }">
+        <h1 v-if="isHeadingVisible">Welcome, {{ username }}!</h1>
+        <p v-else-if="isParagraphVisible">This is a paragraph.</p>
+        <div v-else>
+          <p v-show="isDetailsVisible">
+            Details are visible if isDetailsVisible is true.
+          </p>
+        </div>
+
+        <button :title="buttonTooltip">Hover over me!</button>
       </div>
     </div>
     <script>
@@ -33,7 +40,7 @@
           isItalic:false,
           isParagraphVisible:false,
           isDetailsVisible:false,
-          toolTip:'Thia is tool tip'
+          buttonTooltip: "This is a tooltip"
         }
       },
       el:'#app',
