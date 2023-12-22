@@ -6,7 +6,7 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Salary</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +14,7 @@
       <th scope="row">{{employee.id}}</th>
       <td>{{employee.name}}</td>
       <td>{{employee.salary}}</td>
-      <td>@mdo</td>
+      <td><button @click="deleteEmployee(employee.id)" class="btn btn-danger"> X </button></td>
     </tr>
     
   </tbody>
@@ -33,6 +33,14 @@ export default {
             fetch('http://localhost:3000/employees')
             .then(res=>res.json())
             .then(data=> this.employees = data)
+        },
+        deleteEmployee(id){
+            console.log('Delete employee by id ', id);
+            fetch('http://localhost:3000/employees/'+ id, {
+                method: 'DELETE'
+            })
+            .then(res=>res.json())
+            .then(data=> console.log(data))
         }
     },
     mounted() {
