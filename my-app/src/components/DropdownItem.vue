@@ -1,5 +1,5 @@
 <template lang="">
-     <li><a @click="handleItemClick" class="dropdown-item" href="#">{{itemText}}</a></li>
+     <li><a @click="handleClick(itemText)" class="dropdown-item" href="#">{{itemText}}</a></li>
 </template>
 <script>
 export default {
@@ -14,8 +14,10 @@ export default {
         }
     },
     methods: {
-        handleItemClick(){
-            console.log('Item clicked:', this.itemText);
+        handleClick(option){
+            console.log('Item clicked:', option);
+            this.$emit('select', option)
+        
         }
     }
 }
