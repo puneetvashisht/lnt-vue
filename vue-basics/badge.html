@@ -8,20 +8,29 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   </head>
   <body>
+    
     <div id="app">
       <!-- <img :src="isHighres?highResImage:lowResImage"/> -->
       
     </div>
     <script>
      new Vue({
+
+      
       data(){
         return{
-          caption: 'Inbox'
+          caption: 'Inbox',
+          count: 0
         }
       },
+      methods: {
+  increment() {
+    this.count++;
+  },
+},
       el:'#app',
-      template:`<button type="button" class="btn btn-primary">
-        {{caption}} <span class="badge text-bg-secondary">4</span>
+      template:`<button type="button" @click="increment" class="btn btn-primary">
+        {{caption}} <span class="badge text-bg-secondary">{{count}}</span>
       </button>`
      })
     </script>
