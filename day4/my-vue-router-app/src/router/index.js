@@ -8,7 +8,7 @@ import Login from "../components/Login.vue"
 
 const routes = [
   { path: "/", name: "EmployeeList", component: EmployeeList },
-  { path: "/login", name: "Login", component: Login },
+  { path: "/auth", name: "Login", component: Login },
   {
     path: "/employees/:id",
     name: "EmployeeDetails",

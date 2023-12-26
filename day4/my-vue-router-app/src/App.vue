@@ -4,7 +4,7 @@
     <nav>
       <router-link to="/">EmployeeList</router-link> |
       <router-link to="/create">CreateEmployee</router-link> | 
-      <router-link to="/login">Login</router-link> | 
+      <router-link to="/auth">Login</router-link> | 
     </nav>
 
     <router-view></router-view>

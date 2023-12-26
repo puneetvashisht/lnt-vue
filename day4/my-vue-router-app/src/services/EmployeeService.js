@@ -27,36 +27,15 @@ export default {
     });
   },
 
-  testapi(){
+  authUrl(){
     console.log(' In test api service call..');
-    return http.get('http://localhost:8080/api/v1/employee')
+    return http.get(`/employee`, {
+      headers: {
+        // 'Authorization' : localStorage.getItem('token')
+      }
+    });
+    // return axios.get('http://localhost:8080/api/v1/employee');
   }
   
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// async login(){
-//   // return http.post(``)
-//   return axios.post('http://localhost:8080/user', {}, {
-//     auth: {
-//       username: 'test@test.com',
-//       password: 'testtest'
-//     }
-//   })
-// }

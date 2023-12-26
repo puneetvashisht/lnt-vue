@@ -1,13 +1,15 @@
 <template lang="">
     <div>
         <button @click="authenticate()">Login</button>
-
         <button @click="testapi()">Test</button>
+
+        <!-- <button @click="testapi()">Test</button> -->
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import EmployeeService from "../services/EmployeeService";
 
 const employees = ref([]);
@@ -24,7 +26,7 @@ const authenticate = () => {
 
 const testapi = () => {
     console.log(' In test api method..');
-    EmployeeService.testapi()
+    EmployeeService.authUrl()
     .then(res => console.log(res))
     .catch(err => console.log('Err', err));
 };
