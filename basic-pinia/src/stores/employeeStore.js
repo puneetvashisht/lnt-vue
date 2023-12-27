@@ -24,6 +24,12 @@ export const useEmployeeStore = defineStore("employee", () => {
     return employees.value.find((employee) => employee.id === id);
   }
 
+  function deleteEmployee(id){
+    console.log('Action in store...');
+    const filteredList = employees.value.filter((e)=> e.id!=id);
+    employees.value = filteredList
+  }
+
   function updateEmployeeDetails(id, updatedDetails) {
     const employeeIndex = employees.value.findIndex(
       (employee) => employee.id === id
@@ -34,5 +40,5 @@ export const useEmployeeStore = defineStore("employee", () => {
     }
   }
 
-  return { employees, createEmployee, getEmployee, updateEmployeeDetails };
+  return { employees, createEmployee, getEmployee, updateEmployeeDetails, deleteEmployee };
 });

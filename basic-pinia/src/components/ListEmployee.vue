@@ -9,6 +9,11 @@
       >
         {{ employee.name }} - {{ employee.salary }}
       </li>
+      <li
+        v-for="employee in employees"
+        :key="employee.id">
+        {{ employee.name }} <a href="#" @click="deleteEmployee(employee.id)"> X </a>
+      </li>
     </ul>
   </div>
 </template>
@@ -22,12 +27,13 @@ export default {
   setup(_, { emit }) {
     const employeeStore = useEmployeeStore();
     const { employees } = storeToRefs(employeeStore);
+    const { deleteEmployee } = employeeStore;
 
     const selectEmployee = (employeeId) => {
       emit("employeeSelected", employeeId);
     };
 
-    return { employees, selectEmployee };
+    return { employees, selectEmployee, deleteEmployee };
   },
 };
 </script>
